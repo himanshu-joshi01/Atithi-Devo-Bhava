@@ -1,0 +1,76 @@
+<!-- <%-layout("/layouts/boilerplate.ejs") %> -->
+<body>
+    <div class="row">
+        <div class="col-8 offset-2 mt-5">
+          <h2>Edit Profile</h2>
+    <form class="needs-validation"  method="POST" action="/profile/<%=currUser._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+       
+        <label class="form-label" for="name">Name:</label><br>
+        <input  class="form-control" type="text" id="name" name="user[name]" value=<%=currUser.name%> ><br>
+
+        <label class="form-label"  for="gender">Gender:</label><br>
+        <select class="form-control"  id="gender" name="user[gender]" value=<%=currUser.gender%>>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input class="form-control" type="date" id="dob" name="user[dob]" value=<%=new Date(currUser.createdAt).toLocaleDateString("en-US")%>><br>
+
+        <label for="location">Location:</label><br>
+        <input class="form-control" type="text" id="location" name="user[location]"  value=<%=currUser.location%>><br>
+
+        <label for="email">Email:</label><br>
+        <input class="form-control" type="email" id="email" name="user[email]" value=<%=currUser.email%>><br>
+
+        <select class="form-control" id="category" name="user[category]" value=<%=currUser.category%>>
+          <option value=<%=currUser.category%> ><%=currUser.category%></option>
+          <option value="Host">Host</option>
+          <option value="Guest">Guest</option>
+          <option value="Host/Guest">Host/Guest</option>
+        </select><br>   
+
+        <label for="phone">Phone Number:</label><br>
+        <input class="form-control" type="tel" id="phone" name="user[phone]"><br>
+   
+        <label for=About">About:</label><br>
+        <textarea class="form-control" id="about%" name="user[about]"><%=currUser.about%></textarea><br>
+
+        <label for="photo">Profile Picture:</label><br>
+        <input class="form-control" type="file" id="photo" name="user[profileImage]"><br>
+
+        <label for="travel-style">Travel Style:</label><br>
+        <select class="form-control" id="travel-style" name="user[travelStyle]">
+          <option value="solo">Solo</option>
+          <option value="group">With a Group</option>
+        </select><br>
+       
+       
+        <label for="house-rules">House Rules:</label><br>
+        <textarea class="form-control" id="house-rules" name="house-rules"></textarea><br>
+       
+        <label for="availability">Availability:</label><br>
+        <input class="form-control" type="time" id="availability-start" name="availability-start">
+        <input class="form-control" type="time" id="availability-end" name="availability-end"><br>
+       
+        <label for="language">Language:</label><br>
+        <select class="form-control" id="language" name="user[language]" value=<%=user.language%>>
+          <option value="English">English</option>
+          <option value="हिंदी">हिंदी</option> 
+          <option value="French">French</option>
+          <option value="German">German</option>
+
+        </select><br>
+        <label for="skills">Skills:</label><br>
+        <input class="form-control" type="text" id="skills" name="user[skill]"><br>
+       <button  class="form-label btn btn-success">Submit</button>  
+      </form>
+</div>
+</div>
+</body>
+
+
+    
+
+

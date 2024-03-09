@@ -1,0 +1,76 @@
+
+  <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="http://localhost:8080/home"> <i class="fa-solid fa-house-signal"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse navicons" id="navbarNavAltMarkup">
+
+
+        <div class="navbar-nav ms-auto mt-3">
+          <% if(!currUser && path=="/home") { %>
+           
+                <li><a class="nav-link" href="#home">Home</a></li>
+                <li><a class="nav-link" href="#destinations">Destinations</a></li>
+                <li><a class="nav-link" href="#packages">Packages</a></li>
+                <li><a class="nav-link" href="#about">About</a></li>
+                <li><a class="nav-link" href="#contact">Contact</a></li>
+              
+              <!-- <form action="">
+                <input type="text" name="search" placeholder="Search..." />
+                <button class="btn btn-dark">search</button> 
+              </form> -->
+
+              <li><a class="nav-link" href="http://localhost:8080/signup"><i class="fa-solid fa-user-plus"></i></a></li>
+              <li><a class="nav-link" id="login" href="http://localhost:8080/login"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+        
+            <% } %>
+            <%if(path==="/login"){%>
+              <li><a class="nav-link" href="http://localhost:8080/signup"><i class="fa-solid fa-user-plus"></i></a></li>
+           <% } %>
+  
+            
+          
+           <%if(path==="/signup"){%>
+            <li><a class="nav-link" id="login" href="http://localhost:8080/login"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+
+            <% } %>
+          <% if(currUser && path!=="/home" ) { %>
+            
+              <a class="nav-link" href="http://localhost:8080/listings">Hosts</a>
+              <a class="nav-link" href="http://localhost:8080/home/feeds">Feeds</a>
+              <a class="nav-link" href="http://localhost:8080/listings/new">Add Host</a>
+              <a class="nav-link" href="http://localhost:8080/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+             
+
+          
+            <%}%>
+
+        
+          <% if(currUser && path=="/home") { %>
+            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link" href="#destinations">Destinations</a>
+            <a class="nav-link" href="#packages">Packages</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#contact">Contact</a>
+            <!-- <form action="">
+              <input type="text" name="search" placeholder="Search..." />
+              <button class="btn btn-dark">Search </button> 
+            </form> -->
+              <a class="nav-link" href="http://localhost:8080/listings">Hosts</a>
+              <a class="nav-link" href="http://localhost:8080/home/feeds">Feeds</a>
+              <a class="nav-link" href="http://localhost:8080/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <% } %>
+            <% if(currUser && (path=="/home"||path!=='home')){ %>
+        
+              <a class="nav-link" href="http://localhost:8080/profile/<%=currUser._id%>"><div class="navdp"><img src="<%=currUser.profileImage.url%>" alt=""></div></a>
+
+            <% } %>
+        </div>
+        </div>
+      </div>
+  </nav>
+
+  

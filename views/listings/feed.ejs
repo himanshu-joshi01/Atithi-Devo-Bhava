@@ -1,0 +1,76 @@
+<%-layout("/layouts/boilerplate.ejs") %>
+
+	<body>
+		<section id="create-post" class="col-6 offset-3 mt-5">
+			<form method="POST" action="/home/feeds" class="needs-validation" enctype="multipart/form-data">
+				<textarea name="post[postContent]" id="content" placeholder="What's on your mind?"></textarea><br>
+				<input type="file" name="postImage" id="post" hidden>
+<label for="post"><i class="fa-regular fa-image"></i></label>
+				<button type="submit" class="btn btn-dark">Post</button>
+			</form><br><br><br>
+			<h2>Recent Posts</h2>
+		</section>
+
+		<section id="posts-list" class="col-6 offset-3 ">
+
+		
+			<% for(post of posts) {%>
+				<div class="post mb-5" id=<%= post._id %> > 
+						<div class="post-header">
+							<a href="http://localhost:8080/profile/<%=post.author._id%>"><img
+									src="<%=post.author.profileImage.url%>" alt="Profile Pic 1"></a>
+							<div>
+								<p>
+									<%=post.author.username%>
+								</p>
+								<time>1 hour ago</time>
+							</div>
+						</div><br>
+						<% if(post.postImage.url) { %>
+							<div class="postImage ">
+								<img src="<%=post.postImage.url%>" alt="Profile Pic 1">
+							</div>
+							<%}%>
+								<br>
+								<p>
+									<%=post.postContent%>
+								</p>
+						      
+								<div class="post-actions">
+									<!-- <div><i class="fa-regular fa-heart mx-2 "></i> 500</div> -->
+							
+										<%if(post.likes.length==0){%>
+											<form method="POST" action="/feeds/<%=post._id%>/like">
+												<button type="submit" class="btn btn-dark">Like</button>
+											</form>
+						  
+										  <%}%>  
+										  <%for(like of post.likes) {%>
+										  <%if(like._id.equals(currUser._id)){%>
+											<form method="POST" action="/feeds/<%=post._id%>/like">
+												<button type="submit" class="btn btn-sm-dark"><i class="fa-solid fa-thumbs-up"></i> UnLike</button>
+											</form>
+											
+											 <%}%>
+											 <%if(!(like._id.equals(currUser._id))){%>
+												<form method="POST" action="/feeds/<%=post._id%>/like">
+													<button type="submit" class="btn btn-sm-dark">Like</i></button>
+												</form>
+												 <%}%>
+												 <%}%>
+												 <form action="" class="comment" id="loginform">
+													<input type="text" name="comment"  class="form-control" id="<%=post._id%>">
+													
+												 </form>
+											
+											
+									
+								</div>
+				
+							</div>
+							<%}%>
+		</section>
+
+
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	</body>

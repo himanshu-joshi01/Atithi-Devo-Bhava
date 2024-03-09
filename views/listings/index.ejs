@@ -1,0 +1,20 @@
+<%-layout("/layouts/boilerplate.ejs") %>
+
+  <div class="row cols-lg-3 cols-md-2 cols-sm-1 offset-1">
+    <% for(listing of allListings){%>
+      <div class="card all-card"  style="height: 20rem !important;">
+        <img
+          src="<%=listing.image.url%>"
+          class="card-img-top all-card-img"
+        />
+        <div class="card-body all-card-body">
+          <h5 class="card-title"><%=listing.title%></h5>
+          <p>
+            &#8377;<%=listing.price%>/ Night <br> 
+            <a href="http://localhost:8080/listings/<%=listing._id%>"><button class="btn btn-outline-dark mt-2">More</button></a>
+          </p>
+        </div>
+      </div>
+    <%}%>
+  </div>
+

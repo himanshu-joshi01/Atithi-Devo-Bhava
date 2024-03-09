@@ -1,0 +1,110 @@
+<%-layout("/layouts/boilerplate.ejs") %>
+
+  <body>
+    <section class="profile">
+      <div class="profile-header">
+        <img src="<%=user.profileImage.url%>" alt="">
+
+        <div class="profile-info">
+          <h3>
+            <%=user.username%> <small>(<%= user.category %>)</small>
+          </h3>
+          <p>
+            <%=user.location%>
+          </p>
+          <p>Joined in <%= new Date(user.createdAt).toLocaleDateString("en-US") %>
+          </p>
+          <p>Verified Member</p>
+          <p>Speaks <%=user.language%>
+          </p>
+          <% if(currUser){ %>
+            <% if(currUser._id.equals(user._id)){ %>
+              <a href="http://localhost:8080/profile/<%=currUser._id%>/edit" "><button class=" btn
+                btn-dark">Edit</button></a>
+              <%}%>
+                <% if(!(currUser._id.equals(user._id))){ %>
+                  <%if(stat.followers.length==0){%>
+                    <form method="POST" action="/profile/<%=user._id%>/follow"><button type="submit"
+                        class="btn btn-dark"><i class="fa-solid fa-plus"></i> Follow</button><br><br></form>
+
+                    <%}%>
+
+                      <%for(follower of stat.followers) {%>
+
+                        <% if(currUser._id.equals(follower._id)){ %>
+                          <form method="POST" action="/profile/<%=user._id%>/unfollow"><button type="submit"
+                              class="btn btn-dark">Unfollow</button></form>
+                          <%}%>
+                            <% if(!(currUser._id.equals(follower._id))){ %>
+                              <form method="POST" action="/profile/<%=user._id%>/follow"><button type="submit"
+                                  class="btn btn-dark"><i class="fa-solid fa-plus"></i> Follow</button></form>
+                              <%}%>
+                                <%}%>
+
+                                  <%}%>
+                                    <%}%>
+
+        </div>
+      </div>
+      <div class="profile-stats">
+        <div class="profile-stat">
+          <h3>12</h3>
+          <p>Trips</p>
+        </div>
+        <div class="profile-stat">
+          <h3>
+            <%=user.reviews.length%>
+          </h3>
+          <p>Reviews</p>
+        </div>
+        <div class="profile-stat">
+          <h3>
+            <%=stat.followers.length%>
+          </h3>
+          <p>Follower</p>
+        </div>
+        <div class="profile-stat">
+          <h3>
+            <%=stat.followings.length%>
+          </h3>
+          <p>Following</p>
+        </div>
+      </div>
+      <div class="profile-description">
+        <h3>About Me</h3>
+        <p>
+          <%=user.about%>
+        </p>
+      </div>
+      <h3>Reviews</h3>
+      <div class="profile-reviews row row-cols-lg-3 mt-3 row-cols-sm-1 ">
+        <% for(review of user.reviews){%>
+          <div class="review mt-3 ms-2">
+            <div class="review-header">
+              <a href="http://localhost:8080/profile/<%=review.author._id%>"><img
+                  src=<%=review.author.profileImage.url%> alt="Reviewer Image"></a>
+              <div class="review-info">
+                <h5><strong>
+                    <%=review.author.username%>
+                  </strong></h5>
+                <small>Lucknow,UP</small>
+              </div>
+            </div>
+            <p>&#10077; <%=review.comment%> &#10078;</p>
+            <div class="review-footer">
+              <small>
+                <%= new Date(review.createdAt).toLocaleDateString("en-US") %>
+              </small>
+              <div class="review-rating">
+                <% for(var i=1;i<=review.rating;i++) { %>
+                  <small><i class="fas fa-star"></i></small>
+                  <% } %>
+              </div>
+            </div>
+          </div>
+          <% } %>
+
+      </div>
+      </div>
+    </section>
+  </body>

@@ -1,0 +1,280 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+}
+
+/* Global styles */
+
+h1, h2 {
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+a {
+    
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button, input[type="submit"] {
+   
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color:white;
+}
+
+button:disabled, input[type="submit"]:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+}
+
+
+/* Home section styles */
+#home {
+    background-image: url('https://source.unsplash.com/random/1920x1080/?travel');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+#home h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+#home p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 30rem;
+}
+
+/* Destinations section styles */
+#destinations {
+    padding: 4rem 2rem;
+}
+
+#destinations h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.cardhome {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-basis: calc(33.333% - 4rem);
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.cardhome img {
+    width: 100%;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.cardhome h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cardhome p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    max-height: 6rem;
+    overflow: hidden;
+}
+
+/* Packages section styles */
+#packages {
+    padding: 4rem 2rem;
+    background-color: #f5f5f5;
+}
+
+#packages h2 {
+    font-size: 3rem;
+}
+
+
+/* About Us Section */
+#about {
+    background-color: #f5f5f5;
+    padding: 80px 0;
+    position: relative;
+}
+
+#about:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+    transform: translateX(-50%);
+}
+
+#about h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+#about p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.timeline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 5rem;
+    background-color: white;
+}
+
+.timeline-item {
+    width: 45%;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.timeline-year {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 100px;
+    position: absolute;
+    top: -30px;
+    left: -35%;
+    transform: translateX(50%);
+}
+
+.timeline-content {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 0.25rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-right: 5rem
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.timeline-content p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #f5f5f5;
+    padding: 80px 0;
+}
+
+#contact h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+#contact form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#contact label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+}
+
+#contact textarea {
+    height: 150px;
+}
+
+#contact input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact input[type="submit"]:hover {
+    background-color: #444;
+}
+
+@media (max-width: 768px) {
+    #contact form {
+        flex-direction: column;
+    }
+
+    #contact label,
+    #contact input,
+    #contact textarea {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}    
+
+/* footer/////////////////////////////////////////// */
+
