@@ -1,4 +1,4 @@
-/* Reset styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,36 +8,9 @@
 
 /* Global styles */
 
-h1, h2 {
+h1, h2 ,p{
     font-weight: normal;
-    margin-bottom: 1rem;
-}
-
-a {
-    
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-button, input[type="submit"] {
-   
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-}
-
-button:hover, input[type="submit"]:hover {
-    background-color:white;
-}
-
-button:disabled, input[type="submit"]:disabled {
-    background-color: #c0c0c0;
-    cursor: not-allowed;
+    margin-bottom: 1rem;  
 }
 
 
@@ -51,7 +24,6 @@ button:disabled, input[type="submit"]:disabled {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
     text-align: center;
 }
 
@@ -69,6 +41,7 @@ button:disabled, input[type="submit"]:disabled {
 /* Destinations section styles */
 #destinations {
     padding: 4rem 2rem;
+    background-color: var(--primary);
 }
 
 #destinations h2 {
@@ -85,7 +58,7 @@ button:disabled, input[type="submit"]:disabled {
 }
 
 .cardhome {
-    background-color: #fff;
+    background-color: var(--primary);
     border-radius: 0.25rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex-basis: calc(33.333% - 4rem);
@@ -93,6 +66,7 @@ button:disabled, input[type="submit"]:disabled {
     margin-right: 2rem;
     padding: 1rem;
     text-align: center;
+   
 }
 
 .cardhome img {
@@ -104,6 +78,7 @@ button:disabled, input[type="submit"]:disabled {
 .cardhome h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    color: var(--secondary) !important;
 }
 
 .cardhome p {
@@ -111,51 +86,20 @@ button:disabled, input[type="submit"]:disabled {
     margin-bottom: 1rem;
     max-height: 6rem;
     overflow: hidden;
+    color: var(--secondary) !important;
 }
 
 /* Packages section styles */
 #packages {
     padding: 4rem 2rem;
-    background-color: #f5f5f5;
+    background-color: var(--primary);
 }
 
 #packages h2 {
     font-size: 3rem;
 }
 
-
-/* About Us Section */
-#about {
-    background-color: #f5f5f5;
-    padding: 80px 0;
-    position: relative;
-}
-
-#about:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background-color: #ccc;
-    transform: translateX(-50%);
-}
-
-#about h2 {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-#about p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.timeline {
+.timeline{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -209,14 +153,16 @@ button:disabled, input[type="submit"]:disabled {
 
 /* Contact Section */
 #contact {
-    background-color: #f5f5f5;
+    background-color: var(--primary);
     padding: 80px 0;
+    border: 1px solid var(--secondary) !important;
 }
 
 #contact h2 {
     font-size: 3rem;
     margin-bottom: 3rem;
     text-align: center;
+    color: var(--secondary);
 }
 
 #contact form {
@@ -226,6 +172,7 @@ button:disabled, input[type="submit"]:disabled {
     align-items: center;
     max-width: 800px;
     margin: 0 auto;
+   
 }
 
 #contact label {
@@ -233,34 +180,26 @@ button:disabled, input[type="submit"]:disabled {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
     width: 100%;
+    color: var(--secondary);
 }
 
 #contact input,
-#contact textarea {
+#contact textarea{
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 1.2rem;
+    border: 1px solid var(--secondary);
+ border-radius: 0.25rem;
+ font-size: 1.2rem;
 }
 
 #contact textarea {
     height: 150px;
 }
-
-#contact input[type="submit"] {
-    background-color: #333;
-    color: #fff;
-    padding: 0.5rem 2rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#contact input[type="submit"]:hover {
-    background-color: #444;
+#contact button{
+background-color: black;
+border: 1px solid var(--secondary);
+color: white;
 }
 
 @media (max-width: 768px) {

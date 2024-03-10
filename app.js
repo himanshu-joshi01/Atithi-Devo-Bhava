@@ -96,14 +96,13 @@ res.locals.success= req.flash("success");
 res.locals.error= req.flash("error");
 res.locals.currUser = req.user;
 res.locals.path= req.url;
-
+res.locals.mode= req.mode;
 next();
   
 });
   
 app.get("/", (req, res) => {
   res.render("listings/home.ejs");
- 
 });
 
 app.use("/listings",listingsRouter);

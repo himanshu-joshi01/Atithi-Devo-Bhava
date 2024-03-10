@@ -43,7 +43,7 @@ module.exports.logout=(req,res,next)=>{
     }
     })  
     req.flash("success",'Hi  Welcome back.');
-    res.redirect("/home") ;
+    res.redirect("/") ;
    
 }
 
