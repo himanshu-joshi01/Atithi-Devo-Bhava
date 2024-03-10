@@ -1,7 +1,7 @@
 
   <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/home"> <i class="fa-solid fa-house-signal"></i></a>
+      <a class="navbar-brand" href="/"> <i class="fa-solid fa-house-signal"></i></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
 
 
         <div class="navbar-nav ms-auto mt-3">
-          <% if(!currUser && path=="/home") { %>
+          <% if(!currUser && path=="/") { %>
            
                 <li><a class="nav-link" href="#home">Home</a></li>
                 <li><a class="nav-link" href="#destinations">Destinations</a></li>
@@ -37,10 +37,10 @@
             <li><a class="nav-link" id="login" href="/login"><i class="fa-solid fa-right-to-bracket"></i></a></li>
 
             <% } %>
-          <% if(currUser && path!=="/home" ) { %>
+          <% if(currUser && path!=="/" ) { %>
             
               <a class="nav-link" href="/listings">Hosts</a>
-              <a class="nav-link" href="/home/feeds">Feeds</a>
+              <a class="nav-link" href="/feeds">Feeds</a>
               <a class="nav-link" href="/listings/new">Add Host</a>
               <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
              
@@ -49,7 +49,7 @@
             <%}%>
 
         
-          <% if(currUser && path=="/home") { %>
+          <% if(currUser && path=="/") { %>
             <a class="nav-link" href="#home">Home</a>
             <a class="nav-link" href="#destinations">Destinations</a>
             <a class="nav-link" href="#packages">Packages</a>
@@ -60,10 +60,10 @@
               <button class="btn btn-dark">Search </button> 
             </form> -->
               <a class="nav-link" href="/listings">Hosts</a>
-              <a class="nav-link" href="/home/feeds">Feeds</a>
+              <a class="nav-link" href="/feeds">Feeds</a>
               <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
             <% } %>
-            <% if(currUser && (path=="/home"||path!=='home')){ %>
+            <% if(currUser && (path=="/"||path!=="/")){ %>
         
               <a class="nav-link" href="/profile/<%=currUser._id%>"><div class="navdp"><img src="<%=currUser.profileImage.url%>" alt=""></div></a>
             <% } %>
