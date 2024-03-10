@@ -100,9 +100,8 @@ res.locals.path= req.url;
 next();
   
 });
-
   
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
   res.render("listings/home.ejs");
  
 });
@@ -112,7 +111,7 @@ app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",usersRouter);
 
 
-app.get("/home/feeds", async(req, res) => {
+app.get("/feeds", async(req, res) => {
   let posts= await Post.find({})    
                       .populate("author") 
                       .sort([["createdAt","desc"]])
@@ -121,7 +120,7 @@ app.get("/home/feeds", async(req, res) => {
   res.render("listings/feed.ejs",{posts});
 });
 
-app.post("/home/feeds", upload.single('postImage'), wrapAsync(async(req,res)=>{
+app.post("/feeds", upload.single('postImage'), wrapAsync(async(req,res)=>{
  let {post}=req.body;
     const newPost = new Post(post);   
   newPost.author=req.user._id;
@@ -132,7 +131,7 @@ app.post("/home/feeds", upload.single('postImage'), wrapAsync(async(req,res)=>{
   }  
     SavedPost=await newPost.save();
     req.flash("success",` Post created`);
-    res.redirect("/home/feeds");
+    res.redirect("/feeds");
 }));
 
 
@@ -145,7 +144,7 @@ app.post("/feeds/:postid/like",async(req, res)=>{
   post.likes.push(like);
  
   await  post.save();
-  res.redirect(`/home/feeds/#${postid}`);
+  res.redirect(`/feeds/#${postid}`);
 });
 
 app.post("/feeds/post:id")

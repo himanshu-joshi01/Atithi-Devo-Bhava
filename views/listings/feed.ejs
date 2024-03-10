@@ -2,7 +2,7 @@
 
 	<body>
 		<section id="create-post" class="col-6 offset-3 mt-5">
-			<form method="POST" action="/home/feeds" class="needs-validation" enctype="multipart/form-data">
+			<form method="POST" action="/feeds" class="needs-validation" enctype="multipart/form-data">
 				<textarea name="post[postContent]" id="content" placeholder="What's on your mind?"></textarea><br>
 				<input type="file" name="postImage" id="post" hidden>
 <label for="post"><i class="fa-regular fa-image"></i></label>
@@ -17,7 +17,7 @@
 			<% for(post of posts) {%>
 				<div class="post mb-5" id=<%= post._id %> > 
 						<div class="post-header">
-							<a href="http://localhost:8080/profile/<%=post.author._id%>"><img
+							<a href="/profile/<%=post.author._id%>"><img
 									src="<%=post.author.profileImage.url%>" alt="Profile Pic 1"></a>
 							<div>
 								<p>
