@@ -63,14 +63,16 @@
         
               <a class="nav-link" href="/profile/<%=currUser._id%>"><div class="navdp"><img src="<%=currUser.profileImage.url%>" alt=""></div></a>
             <% } %>
-            <label class="switch">
-              <input id="toggle" type="checkbox">
-              <span onClick="darkmode()" class="slider round"></span>
-            </label>
+          <a > <label for="toggle" class="switch">
+              <input id="toggle" type="checkbox" onclick="checkmode()">
+              <span class="slider round"></span>
+            </label></a> 
+            
         
         </div>
         </div>
       </div>
   </nav>
+  
 
   

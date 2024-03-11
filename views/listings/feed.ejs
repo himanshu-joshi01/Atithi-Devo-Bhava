@@ -2,19 +2,20 @@
 
 	<body>
 		<section id="create-post" class="col-6 offset-3 mt-5">
-			<form method="POST" action="/feeds" class="needs-validation" enctype="multipart/form-data">
-				<textarea name="post[postContent]" id="content" placeholder="What's on your mind?"></textarea><br>
+			<form method="POST" action="/feeds" class="needs-validation" enctype="multipart/form-data" >
+				<textarea name="post[postContent]" id="content" placeholder="What's on your mind?" required></textarea><br>
 				<input type="file" name="postImage" id="post" hidden>
+				<div class="postbtn">
 <label for="post"><i class="fa-regular fa-image"></i></label>
 				<button type="submit" class="btn btn-dark">Post</button>
+			</div>
 			</form><br><br><br>
-			<h2>Recent Posts</h2>
 		</section>
 
 		<section id="posts-list" class="col-6 offset-3 ">
 
 		
-			<% for(post of posts) {%>
+			<% for(const post of posts) {%>
 				<div class="post mb-5" id=<%= post._id %> > 
 						<div class="post-header">
 							<a href="/profile/<%=post.author._id%>"><img
@@ -39,36 +40,35 @@
 								<div class="post-actions">
 									<!-- <div><i class="fa-regular fa-heart mx-2 "></i> 500</div> -->
 							
-										<%if(post.likes.length==0){%>
+	                                    <%let found="false"%>
+										<%for(like of post.likes){%>
+										  <%if(currUser._id.equals(like._id)){%>
+											<%found="true"%>
+											<%break%>
+											<%}else{%>
+									<%found="false"%>
+									<%}%>
+									<%}%>
+									<%if(found==="true"){%>
+										<form method="POST" action="/feeds/<%=post._id%>/unlike">
+											<button type="submit" class="btn btn-dark">UnLike <%=post.likes.length%></button>
+										</form>
+										<%}%>
+										<%if(found==="false"){%>
 											<form method="POST" action="/feeds/<%=post._id%>/like">
-												<button type="submit" class="btn btn-dark">Like</button>
+												<button type="submit" class="btn btn-dark">Like  <%=post.likes.length%></button>
 											</form>
-						  
-										  <%}%>  
-										  <%for(like of post.likes) {%>
-										  <%if(like._id.equals(currUser._id)){%>
-											<form method="POST" action="/feeds/<%=post._id%>/like">
-												<button type="submit" class="btn btn-sm-dark"><i class="fa-solid fa-thumbs-up"></i> UnLike</button>
-											</form>
-											
-											 <%}%>
-											 <%if(!(like._id.equals(currUser._id))){%>
-												<form method="POST" action="/feeds/<%=post._id%>/like">
-													<button type="submit" class="btn btn-sm-dark">Like</i></button>
-												</form>
-												 <%}%>
-												 <%}%>
+											<%}%>
 												 <form action="" class="comment" id="loginform">
-													<input type="text" name="comment"  class="form-control" id="<%=post._id%>">
+													<input type="text" name="comment"  class="form-control" id="<%=post._id%>">		
 													
 												 </form>
-											
-											
 									
 								</div>
 				
 							</div>
 							<%}%>
+							
 		</section>
 
 

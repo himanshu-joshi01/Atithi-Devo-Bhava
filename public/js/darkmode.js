@@ -1,63 +1,58 @@
-function darkmode(){
-
-    var mode;
-    var root=document.querySelector(':root');  
-    var rootStyle=getComputedStyle(root);
-    console.log(rootStyle);
-    var primary=rootStyle.getPropertyValue("--primary");
-    var secondary=rootStyle.getPropertyValue("--secondary");
-    if(primary==='white'&& secondary==='black')
-    {
-        root.style.setProperty('--primary','black');
-        root.style.setProperty('--secondary','white');
-        mode="DARK";
-    }
-    
-else
-{
-    root.style.setProperty('--primary','white');
-    root.style.setProperty('--secondary','black');
-    mode="LIGHT";
-}
-localStorage.setItem("mode",JSON.stringify(mode));
-}
-
-let getMode=JSON.parse(localStorage.getItem("mode"));
+var mode,check;
 var root=document.querySelector(':root');  
 var rootStyle=getComputedStyle(root);
+function checkmode() {
+   
+    var checkBox = document.getElementById("toggle");
+ 
+    if (checkBox.checked === true){
+     
+     darkmode();
+    } else{
+
+        lightmode();
+        
+    }
+}
+
+
+  
+function darkmode(){
+
+        root.style.setProperty('--primary','black');
+        root.style.setProperty('--secondary','whitesmoke');
+        mode="DARK";
+        sessionStorage.setItem("mode",JSON.stringify(mode));
+       
+        
+}
+
+function lightmode(){
+    root.style.setProperty('--primary','whitesmoke');
+    root.style.setProperty('--secondary','black');
+    mode="LIGHT";
+    sessionStorage.setItem("mode",JSON.stringify(mode));
+
+  
+}
+
+
+let getMode=JSON.parse(sessionStorage.getItem("mode"));
+
+var root=document.querySelector(':root');  
+var rootStyle=getComputedStyle(root);
+
+
        if (getMode==="LIGHT")    
        {           
-        localStorage.setItem("mode",JSON.stringify(getMode));
-   
+        sessionStorage.setItem("mode",JSON.stringify(getMode));
 
        }                  
        else 
        if(getMode==="DARK")                     
        {                           
-        localStorage.setItem("mode",JSON.stringify(getMode));
+        sessionStorage.setItem("mode",JSON.stringify(getMode));
         root.style.setProperty('--primary','black');
-        root.style.setProperty('--secondary','white');
-        
+        root.style.setProperty('--secondary','whitesmoke');
+                
        }                             
-    
-
-// function switch_theme()
-// {
-// if(mode=="LIGHT")
-// {
-//     lightmode();
-
-// if(getMode==="DARK")
-// {
-   
-// }
-// else
-// if(getMode==="LIGHT")
-// {
-//     localStorage.setItem("mode","LIGHT");
-//     root.style.setProperty('--primary','white');
-//     root.style.setProperty('--secondary','black');
-
-// }
-
-

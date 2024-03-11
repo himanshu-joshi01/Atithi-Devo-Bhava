@@ -7,7 +7,7 @@ const app = express();
 const mongoose = require("mongoose");
 const path= require("path");
 const methodOverride = require("method-override");
-const ejsMate=require("ejs-mate");
+const ejsMate = require("ejs-mate");
 const ExpressError=require("./utils/ExpressError.js")
 const cookieParser= require("cookie-parser");
 const session=require("express-session");
@@ -90,16 +90,15 @@ passport.deserializeUser(User.deserializeUser()) ;
 
 // routes =============================================================
 
-
 app.use((req,res,next)=>{
-res.locals.success= req.flash("success");
-res.locals.error= req.flash("error");
-res.locals.currUser = req.user;
-res.locals.path= req.url;
-res.locals.mode= req.mode;
-next();
-  
-});
+  res.locals.success= req.flash("success");
+  res.locals.error= req.flash("error");
+  res.locals.currUser = req.user;
+  res.locals.path= req.url;
+  next();
+    
+  });
+
   
 app.get("/", (req, res) => {
   res.render("listings/home.ejs");
@@ -112,10 +111,9 @@ app.use("/",usersRouter);
 
 app.get("/feeds", async(req, res) => {
   let posts= await Post.find({})    
-                      .populate("author") 
+                      .populate("author").populate("likes")
                       .sort([["createdAt","desc"]])
                       .lean().exec();
-                      
   res.render("listings/feed.ejs",{posts});
 });
 
@@ -146,7 +144,23 @@ app.post("/feeds/:postid/like",async(req, res)=>{
   res.redirect(`/feeds/#${postid}`);
 });
 
-app.post("/feeds/post:id")
+app.post("/feeds/:postid/like",async(req, res)=>{ 
+  let { postid } = req.params;
+  let post= await Post.findById(postid);
+  let like= await User.findById(req.user._id);
+  post.likes.push(like);
+ 
+  await  post.save();
+  res.redirect(`/feeds/#${postid}`);
+});
+
+app.post("/feeds/:postid/unlike",async(req, res)=>{ 
+  let { postid } = req.params;
+  let post= await Post.findById(postid);
+  post.likes.splice(post.likes.indexOf(req.user._id),1);
+  await  post.save();
+  res.redirect(`/feeds/#${postid}`);
+});
 
 
 

@@ -1,7 +1,7 @@
 const mongoose= require ("mongoose");
 const Schema= mongoose.Schema;
 
-const postSchema= new Schema([{
+const postSchema= new Schema({
 
     postContent: {
         type: String, 
@@ -20,7 +20,7 @@ const postSchema= new Schema([{
             ref:"Comment"
         }],
 
-        likes:[{
+    likes:[{
             type:Schema.Types.ObjectId,
             ref:'User'
 
@@ -42,7 +42,7 @@ const postSchema= new Schema([{
         },
     },
     
-}]);
+});
 
 // Method to add a new comment on the review
 

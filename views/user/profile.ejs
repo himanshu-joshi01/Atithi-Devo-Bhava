@@ -7,10 +7,10 @@
 
         <div class="profile-info">
           <h3>
-            <%=user.username%> 
-            <%if(user.category){%>
-              <small>(<%= user.category %>)</small>
-              <%}%>
+            <%=user.username%>
+              <%if(user.category){%>
+                <small>(<%= user.category %>)</small>
+                <%}%>
           </h3>
           <p>
             <%=user.location%>
@@ -31,21 +31,29 @@
                         class="btn btn-dark"><i class="fa-solid fa-plus"></i> Follow</button><br><br></form>
 
                     <%}%>
+                      <%let found="false" %>
+                        <%for(follower of stat.followers) {%>
 
-                      <%for(follower of stat.followers) {%>
-
-                        <% if(currUser._id.equals(follower._id)){ %>
-                          <form method="POST" action="/profile/<%=user._id%>/unfollow"><button type="submit"
-                              class="btn btn-dark">Unfollow</button></form>
-                          <%}%>
-                            <% if(!(currUser._id.equals(follower._id))){ %>
-                              <form method="POST" action="/profile/<%=user._id%>/follow"><button type="submit"
-                                  class="btn btn-dark"><i class="fa-solid fa-plus"></i> Follow</button></form>
-                              <%}%>
-                                <%}%>
-
-                                  <%}%>
+                          <% if(currUser._id.equals(follower._id)){ %>
+                            <%found="true"%>
+                              <%break%>
+                                <%}else{%>
+                                  <%found="false"%>
                                     <%}%>
+                                      <%}%>
+                                        <%if(found==="true"){%>
+                                          <form method="POST" action="/profile/<%=user._id%>/unfollow"><button
+                                              type="submit" class="btn btn-dark">Unfollow</button></form>
+                                          <%}%>
+                                            <%if(found==="false"){%>
+                                              <form method="POST" action="/profile/<%=user._id%>/follow"><button
+                                                  type="submit" class="btn btn-dark"><i class="fa-solid fa-plus"></i>
+                                                  Follow</button></form>
+                                              <%}%>
+
+
+                                                <%}%>
+                                                  <%}%>
 
         </div>
       </div>
