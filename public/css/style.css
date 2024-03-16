@@ -16,7 +16,17 @@ body{
     min-height: 100vh;
     color: var(--secondary) !important;
     background-color: var(--primary) !important;
+    
 }
+
+.logo{
+    height: 64px;
+    width: 64px;    
+   border-radius: 50%;
+   transform:scale(1);
+}
+
+
 
 
 body input,textarea,select,input::placeholder,textarea::placeholder{

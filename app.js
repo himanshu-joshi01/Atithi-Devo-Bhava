@@ -27,7 +27,7 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const reviewsRouter= require("./routes/review.js");
 const listingsRouter= require("./routes/listing.js");
 const usersRouter= require("./routes/user.js");
-const { MongoAWSError } = require('mongodb');
+
 
 
 
@@ -117,6 +117,7 @@ app.get("/feeds", async(req, res) => {
   res.render("listings/feed.ejs",{posts});
 });
 
+
 app.post("/feeds", upload.single('postImage'), wrapAsync(async(req,res)=>{
  let {post}=req.body;
     const newPost = new Post(post);   
@@ -132,8 +133,6 @@ app.post("/feeds", upload.single('postImage'), wrapAsync(async(req,res)=>{
 }));
 
 
-
-
 app.post("/feeds/:postid/like",async(req, res)=>{ 
   let { postid } = req.params;
   let post= await Post.findById(postid);
@@ -153,6 +152,7 @@ app.post("/feeds/:postid/like",async(req, res)=>{
   await  post.save();
   res.redirect(`/feeds/#${postid}`);
 });
+
 
 app.post("/feeds/:postid/unlike",async(req, res)=>{ 
   let { postid } = req.params;
