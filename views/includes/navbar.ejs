@@ -1,8 +1,26 @@
 
-  <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <nav class="navbar navbar-expand-md bg-body-light sticky-top">
     <div class="container-fluid">
       <!-- <a class="navbar-brand" href="/"> <i class="fa-solid fa-house-signal"></i></a> -->
-      <a class="navbar-brand" href="/"><img src="/assets/abc2.png" alt="" class="logo"></a>
+      <a class="navbar-brand" href="/"><img src="/assets/main.png" alt="" class="logo"></a>
+     
+     <div class="nav-btn">
+        <% if((!currUser || currUser) && (path=="/"|| path=="/login"||path=="/signup")) { %>
+         
+              <a class="nav-link" href="http://localhost:8080/#home"><i class="fa-solid fa-house h5 "></i></a>
+              <a class="nav-link" href="#about"><i class="fa-solid fa-circle-info h5"></i></a>
+              <a class="nav-link" href="http://localhost:8080/#contact"><i class="fa-solid fa-address-book h5"></i></a>
+              <!-- <a class="nav-link" href="#about">About</a>
+              <a class="nav-link" href="#contact">Contact</a> -->
+            
+            <!-- <form action="">
+              <input type="text" name="search" placeholder="Search..." />
+              <button class="btn btn-dark">search</button> 
+            </form> -->
+
+      
+          <% } %>
+      </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -13,17 +31,17 @@
         <div class="navbar-nav ms-auto mt-3">
           <% if(!currUser && (path=="/"|| path=="/login"||path=="/signup")) { %>
            
-                <a class="nav-link" href="#home">Home</a>
-                <a class="nav-link" href="#about">About</a>
-                <a class="nav-link" href="#contact">Contact</a>
+                <!-- <a class="nav-link" href="#home"><i class="fa-solid fa-house h5"></i></a> -->
+                <!-- <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#contact">Contact</a> -->
               
               <!-- <form action="">
                 <input type="text" name="search" placeholder="Search..." />
                 <button class="btn btn-dark">search</button> 
               </form> -->
 
-              <a class="nav-link" href="/signup"><i class="fa-solid fa-user-plus"></i></a>
-              <a class="nav-link" id="login" href="/login"><i class="fa-solid fa-right-to-bracket"></i></a>
+              <a class="nav-link" href="/signup"><i class="fa-solid fa-user-plus h5"></i></a>
+              <a class="nav-link" id="login" href="/login"><i class="fa-solid fa-right-to-bracket h5"></i></a>
         
             <% } %>
             <!-- <%if(path==="/login"){%>
@@ -41,7 +59,7 @@
               <a class="nav-link" href="/listings">Hosts</a>
               <a class="nav-link" href="/feeds">Feeds</a>
               <a class="nav-link" href="/listings/new">Add Host</a>
-              <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+              <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket h5"></i></a>
              
 
           
@@ -49,25 +67,26 @@
 
         
           <% if(currUser && path=="/") { %>
-            <a class="nav-link" href="#home">Home</a>
+            <!-- <a class="nav-link" href="#home"><i class="fa-solid fa-house h5"></i></a>
             <a class="nav-link" href="#about">About</a>
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="#contact">Contact</a> -->
             <!-- <form action="">
               <input type="text" name="search" placeholder="Search..." />
               <button class="btn btn-dark">Search </button> 
             </form> -->
               <a class="nav-link" href="/listings">Hosts</a>
               <a class="nav-link" href="/feeds">Feeds</a>
-              <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+              <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket h5"></i></a>
             <% } %>
-            <% if(currUser && (path=="/"||path!=="/")){ %>
-        
-              <a class="nav-link" href="/profile/<%=currUser._id%>"><div class="navdp"><img src="<%=currUser.profileImage.url%>" alt=""></div></a>
-            <% } %>
-          <a > <label for="toggle" class="switch">
+            <a><label for="toggle" class="switch">
               <input id="toggle" type="checkbox" onclick="checkmode()">
               <span class="slider round"></span>
             </label></a> 
+            <% if(currUser && (path=="/"||path!=="/")){ %>
+        
+              <a href="/profile/<%=currUser._id%>"><div class="navdp"><img src="<%=currUser.profileImage.url%>" alt=""></div></a>
+            <% } %>
+            
             
         
         </div>

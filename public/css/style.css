@@ -19,14 +19,18 @@ body{
     
 }
 
+
 .logo{
-    height: 64px;
-    width: 64px;    
-   border-radius: 50%;
-   transform:scale(1);
+   
+    height: 120px;
+    width: 120px;
+   
 }
 
+.login{
+   margin-bottom: 10% !important;
 
+}
 
 
 body input,textarea,select,input::placeholder,textarea::placeholder{
@@ -42,7 +46,8 @@ body input,textarea,select,input::placeholder,textarea::placeholder{
     display: flex !important;
     text-align: center !important;
      align-items: center !important;
-
+     border: none !important;
+   
 }
 
 
@@ -52,16 +57,39 @@ body input,textarea,select,input::placeholder,textarea::placeholder{
   
 }
 
-.fa-house-signal{
-    color:brown;
-    font-size: 2rem;
+.nav-btn{
+    width: 20% !important;
+    height: 2rem !important;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center!important;
+    margin-left: 30%;
+    padding-top: .5rem;
+    border-radius: 1rem !important;
+    padding-left: 3rem !important;
+   
 }
 
+.nav-btn a{
+padding-right: 3rem !important;
+color: var(--primary) !important;
 
+
+   
+}
 
 .nav-link{
     color: var(--secondary) !important;
+    opacity: .3;
+
 }
+
+.nav-link:hover{
+    opacity: 1;
+    transition: ease-in-out .4s;
+   
+}
+
 
 
 .f-links a{
@@ -164,6 +192,8 @@ body input,textarea,select,input::placeholder,textarea::placeholder{
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
+    margin-bottom: .5rem;
+    margin-left: 5px;
 }
 
 /* footer */
@@ -230,27 +260,18 @@ f-info-brand {
  @media (max-width: 1000px) {
 
     .container-fluid{
-        background-color: var(--secondary);
+        background-color: var(--primary);
       
     }
-    .navbar{
-        background-color: var(--secondary) !important;
-    }
+
     .navbar-toggler{
         background-color: grey !important;
-    }
-   
-    .navbar-nav {
-        text-align: center;
-        
-        margin-top: 10px;
-        background-color: var(--secondary);
     }
 
     .navbar-nav a {
         margin: 0.5rem;
         width: 100%;
-        color: var(--primary) !important;
+        color: var(--secondary) !important;
     }
 
     .navbar-nav.ms-auto {
@@ -267,11 +288,32 @@ f-info-brand {
     /* .col-6.offset-3 {
         width: 100%;
     } */
-   
+    .nav-btn{
+
+        margin-left: 20%;
+
+    }
+
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+    .container{
+        margin-top: 5rem !important;
+    }
  
+    .nav-btn{
+        width: 30% !important;
+        display: flex;
+        justify-content: space-evenly!important;
+        margin-left: 0%;
+padding-left: 0rem !important;
+    }
+
+    .nav-btn a{
+        padding-right: 0rem !important;
+           
+        }
+
     .f-info {
         height: auto;
         padding: 1rem;
@@ -308,6 +350,15 @@ f-info-brand {
     #map{
         width: 40vh;
     }
+
+    .login{
+        margin-bottom: 60% !important;
+    }
+
+.signup{
+    padding-bottom: 20% !important;
+  
+}
     
 }
 
@@ -423,7 +474,7 @@ f-info-brand {
 	height:  6rem;
 	padding: 10px;
 	font-size: 1rem;
-	border: 1px solid var(--secondary);
+	border: 3px solid var(--secondary);
     border-radius: 1rem;
   
 }
@@ -496,9 +547,24 @@ margin-bottom: 1rem;
 
 }
 
+.fa-heart{
+    font-size: 2rem;
+}
+
+.unlike{
+    color: red;
+}
+
+#comment{
+
+    margin-left: 2rem;
+    width: 70% !important;
+    border-radius: 1rem !important;
+}
 
 
-@media (max-width: 600px) 	{
+
+@media (max-width: 700px) 	{
 	#posts-list {
 		list-style: none; 
 		width:96%;
@@ -514,7 +580,8 @@ margin-bottom: 1rem;
     display: inline-block;
     width: 40px;
     height: 25px;
-    margin-top: 1rem !important;
+    margin-top: 0.4rem !important;
+    margin-right: 5px;
   }
   
   /* Hide default HTML checkbox */
