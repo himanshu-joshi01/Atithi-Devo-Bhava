@@ -22,8 +22,8 @@ body{
 
 .logo{
    
-    height: 120px;
-    width: 120px;
+    height: 90px;
+    width: 90px;
    
 }
 
@@ -298,7 +298,7 @@ f-info-brand {
 
 @media (max-width: 700px) {
     .container{
-        margin-top: 5rem !important;
+        margin-top: 2rem !important;
     }
  
     .nav-btn{
@@ -560,6 +560,7 @@ margin-bottom: 1rem;
     margin-left: 2rem;
     width: 70% !important;
     border-radius: 1rem !important;
+    border: 2px solid var(--secondary);
 }
 
 
