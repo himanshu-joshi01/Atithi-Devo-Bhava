@@ -27,6 +27,7 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const reviewsRouter= require("./routes/review.js");
 const listingsRouter= require("./routes/listing.js");
 const usersRouter= require("./routes/user.js");
+const feedsRouter=require("./routes/feed.js");
 
 
 
@@ -107,62 +108,7 @@ app.get("/", (req, res) => {
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",usersRouter);
-
-
-app.get("/feeds", async(req, res) => {
-  let posts= await Post.find({})    
-                      .populate("author").populate("likes")
-                      .sort([["createdAt","desc"]])
-                      .lean().exec();
-  res.render("listings/feed.ejs",{posts});
-});
-
-
-app.post("/feeds", upload.single('postImage'), wrapAsync(async(req,res)=>{
- let {post}=req.body;
-    const newPost = new Post(post);   
-  newPost.author=req.user._id;
-  if (typeof req.file !== 'undefined') {
-      let url = req.file.path;
-      let filename = req.file.filename;
-      newPost.postImage = { url, filename };
-  }  
-    SavedPost=await newPost.save();
-    req.flash("success",` Post created`);
-    res.redirect("/feeds");
-}));
-
-
-app.post("/feeds/:postid/like",async(req, res)=>{ 
-  let { postid } = req.params;
-  let post= await Post.findById(postid);
-  let like= await User.findById(req.user._id);
-  post.likes.push(like);
- 
-  await  post.save();
-  res.redirect(`/feeds/#${postid}`);
-});
-
-app.post("/feeds/:postid/like",async(req, res)=>{ 
-  let { postid } = req.params;
-  let post= await Post.findById(postid);
-  let like= await User.findById(req.user._id);
-  post.likes.push(like);
- 
-  await  post.save();
-  res.redirect(`/feeds/#${postid}`);
-});
-
-
-app.post("/feeds/:postid/unlike",async(req, res)=>{ 
-  let { postid } = req.params;
-  let post= await Post.findById(postid);
-  post.likes.splice(post.likes.indexOf(req.user._id),1);
-  await  post.save();
-  res.redirect(`/feeds/#${postid}`);
-});
-
-
+app.use("/feeds",feedsRouter);
 
 
 app.all("*",(req,res,next)=>{

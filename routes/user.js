@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 const userController= require("../controllers/users.js");
 const wrapAsync = require("../utils/wrapAsync.js");
-const { isLoggedIn, isOwner, validateListing } = require('../middleware.js');
+const { isLoggedIn} = require('../middleware.js');
 const multer = require("multer");
 const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });  
@@ -34,6 +34,7 @@ router.route("/profile/:id/edit")
     
 router.route("/profile/:id")
 .get(
+    isLoggedIn,
     wrapAsync(userController.showProfile))
 .put(
     isLoggedIn,

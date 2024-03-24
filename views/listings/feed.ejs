@@ -62,12 +62,10 @@
 												<button type="submit" class="btn btn-dark" id="like" hidden> </button>
 											</form>
 											<%}%>
-												 <form action="" class="comment" id="loginform">
-                                                    
+												 <form method="POST" action="/feeds/<%=post._id%>/comment" class="comment" id="loginform">
 													<input type="text" name="comment" id="comment">	
-													<button type="submit" id="comments" hidden></button>	
-													<label for="comments"><i class="fa-solid fa-arrow-right h4 ms-1"></i></label>	
-
+													<button type="submit" id="comments">send</button>	
+				
 												 </form>
 									
 								</div>
