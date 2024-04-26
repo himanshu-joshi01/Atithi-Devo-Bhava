@@ -1,10 +1,12 @@
 const Post = require('../models/post.js');
+const Comment = require('../models/comment.js');
 const User=require('../models/user');
 
 
 module.exports.feeds=async(req, res) => {
-    let posts= await Post.find({})    
+    let posts= await Post.find()    
                         .populate("author").populate("likes")
+                        .populate("comment")  //get user info for each post
                         .sort([["createdAt","desc"]])
                         .lean().exec();
     res.render("listings/feed.ejs",{posts});
@@ -30,6 +32,8 @@ module.exports.like=async(req,res)=>{
     let like= await User.findById(req.user._id);
     post.likes.push(like);
     await post.save();
+    console.log(postid);
+    // res.redirect(`/feeds/#${postid}`);
     res.redirect(`/feeds/#${postid}`);
 }
 
@@ -39,18 +43,23 @@ module.exports.unLike=async(req,res)=>{
    let post= await Post.findById(postid);
    post.likes.splice(post.likes.indexOf(req.user._id),1);
    await  post.save();
-   res.redirect(`/feeds/#${postid}`);
+   console.log(postid);
+//    res.redirect(`/feeds/#${postid}`);
+res.redirect(`/feeds/#${postid}`);
+
 }
 
 module.exports.comment=async(req,res)=>{ 
   
     let { postid } = req.params;
-    let  comment = req.body.comment;
     let post= await Post.findById(postid);
-    console.log(comment);
-    console.log(post._id);
-    // post.likes.splice(post.likes.indexOf(req.user._id),1);
-    // await  post.save();
-    // res.redirect(`/feeds/#${postid}`);
+    let newComment=new Comment(req.body) ;
+    newComment.text=req.body.comment;
+    newComment.author=req.user;
+    post.comment.push(newComment);
+    await newComment.save();
+    await post.save();
+    res.redirect(`/feeds/#${postid}`);
+   
  }
  

@@ -19,3 +19,24 @@ module.exports.reviewSchema= Joi.object({
     comment: Joi.string().required(),
 }).required()
 });
+
+module.exports.userSchema= Joi.object({
+    review :Joi.object({
+    rating: Joi.number().integer().min(1).max(5).required(),  //rating should be a number between 1 and 5 inclusive 
+    comment: Joi.string().required(),
+}).required()
+});
+
+module.exports.postSchema= Joi.object({
+    review :Joi.object({
+    rating: Joi.number().integer().min(1).max(5).required(),  //rating should be a number between 1 and 5 inclusive 
+    comment: Joi.string().required(),
+}).required()
+});
+
+module.exports.commentSchema= Joi.object({
+    review :Joi.object({
+    rating: Joi.number().integer().min(1).max(5).required(),  //rating should be a number between 1 and 5 inclusive 
+    comment: Joi.string().required(),
+}).required()
+});

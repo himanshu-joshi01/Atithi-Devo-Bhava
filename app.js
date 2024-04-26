@@ -16,11 +16,8 @@ const flash= require("connect-flash");
 const passport=require('passport');
 const LocalStrategy=require('passport-local');
 const User = require("./models/user.js");
-const Post = require("./models/post.js");
-const multer = require("multer");
-const { storage } = require("./cloudConfig.js");
-const upload = multer({ storage });  
-const wrapAsync = require("./utils/wrapAsync.js");
+
+
 
 
 

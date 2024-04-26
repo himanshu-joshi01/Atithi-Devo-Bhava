@@ -1,5 +1,6 @@
 const mongoose= require ("mongoose");
 const Schema= mongoose.Schema;
+const Comment =require("./comment.js");
 
 const postSchema= new Schema({
 
@@ -44,22 +45,13 @@ const postSchema= new Schema({
     
 });
 
-// Method to add a new comment on the review
+postSchema.post("findOneAndDelete",async(post)=>{
+    if(post){
+      await Comment.deleteMany({_id:{$in: post.comment}});
+    }
+  
+  });
 
-// const commentSchema = new Schema({
-//     text: {
-//         type: String,
-
-//     },
-//     author: {
-//         type: Schema.Types.ObjectId,
-//         ref: 'User'
-//     },
-//     createdAt: {
-//         type: Date,
-//         default: Date.now
-//     }
-// });
 
 
 // postSchema.methods={
@@ -85,7 +77,4 @@ const postSchema= new Schema({
 
 
 const Post= mongoose.model('Post', postSchema);
-// const Comment= mongoose.model('Comment', commentSchema);
-
 module.exports = Post;
-// module.exports = Comment;

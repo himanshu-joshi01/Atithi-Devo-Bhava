@@ -51,25 +51,30 @@
 									<%}%>
 									<%if(found==="true"){%>
 										<form method="POST" action="/feeds/<%=post._id%>/unlike">
-											<label for="unlike"><i class="fa-solid fa-heart unlike"></i></label>
-											<button type="submit" class="btn btn-dark" id="unlike" hidden></button>
+											<!-- <label for="unlike"><i class="fa-solid fa-heart unlike"></i></label> -->
+											<button type="submit" class="btn btn-dark" id="unlike" ><i class="fa-solid fa-heart unlike"></i></button></button>
 										</form>
 										<%}%>
 										<%if(found==="false"){%>
 											<form method="POST" action="/feeds/<%=post._id%>/like">
 												<!-- <%=post.likes.length%> Likes -->
-												<label for="like"><i class="fa-regular fa-heart"></i></label>
-												<button type="submit" class="btn btn-dark" id="like" hidden> </button>
+												<!-- <label for="like"><i class="fa-regular fa-heart"></i></label> -->
+												<button type="submit" class="btn btn-dark" id="like"><i class="fa-regular fa-heart"></i> </button>
 											</form>
 											<%}%>
 												 <form method="POST" action="/feeds/<%=post._id%>/comment" class="comment" id="loginform">
 													<input type="text" name="comment" id="comment">	
-													<button type="submit" id="comments">send</button>	
+													<button type="submit" id="commentBtn">send</button>	
 				
 												 </form>
+						
+                                      
 									
 								</div>
-				
+								<% for(comment of post.comment) {%>
+									<p><%=comment.text%></p><br>
+								
+									<%}%>
 							</div>
 							<%}%>
 							
