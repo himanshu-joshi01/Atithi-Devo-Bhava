@@ -32,7 +32,6 @@ module.exports.like=async(req,res)=>{
     let like= await User.findById(req.user._id);
     post.likes.push(like);
     await post.save();
-    console.log(postid);
     // res.redirect(`/feeds/#${postid}`);
     res.redirect(`/feeds/#${postid}`);
 }
@@ -43,7 +42,6 @@ module.exports.unLike=async(req,res)=>{
    let post= await Post.findById(postid);
    post.likes.splice(post.likes.indexOf(req.user._id),1);
    await  post.save();
-   console.log(postid);
 //    res.redirect(`/feeds/#${postid}`);
 res.redirect(`/feeds/#${postid}`);
 
