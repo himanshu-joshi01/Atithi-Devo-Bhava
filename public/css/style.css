@@ -112,9 +112,10 @@ opacity: 1 !important;
 
 
 .all-card{
+    background-color: var(--primary) !important;
     border:none !important;
     width: 28rem !important;
-    margin: 3rem 0rem 3rem 0rem !important;
+    margin: 3rem 0rem 5rem 0rem !important;
 }
 
 
@@ -130,6 +131,7 @@ opacity: 1 !important;
 
 
 .all-card-body{
+    
     padding-top: 2rem;
     z-index: 1;
     transform: translateY(-50%);
@@ -502,6 +504,7 @@ padding-left: 0rem !important;
     /* box-shadow: 0px 2px 4px var(--secondary); */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	background-color: var(--primary);
+   border: 1px solid grey;
 	padding: 1rem 1rem 1rem 1rem ;
 	border-radius: 10px;
     color: var(--secondary);
@@ -565,7 +568,7 @@ margin-bottom: 1rem;
 
 #comment{
 
-    margin-left: .8rem;
+
     width: 70% !important;
     border-radius: 1rem !important;
     border: 2px solid var(--secondary);
@@ -573,10 +576,11 @@ margin-bottom: 1rem;
 #commentBtn{
     margin-left: .5rem;
      width: 3rem;
-     border: 1px solid black;
      border-radius: 1rem;
+   
+    }
+    
 
-}
 
 
 

@@ -52,14 +52,14 @@
 									<%if(found==="true"){%>
 										<form method="POST" action="/feeds/<%=post._id%>/unlike">
 											<!-- <label for="unlike"><i class="fa-solid fa-heart unlike"></i></label> -->
-											<button type="submit" class="btn btn-dark" id="unlike" ><i class="fa-solid fa-heart unlike"></i></button></button>
+											<button type="submit" class="btn" id="unlike" ><i class="fa-solid fa-heart unlike"></i></button></button>
 										</form>
 										<%}%>
 										<%if(found==="false"){%>
 											<form method="POST" action="/feeds/<%=post._id%>/like">
 												<!-- <%=post.likes.length%> Likes -->
 												<!-- <label for="like"><i class="fa-regular fa-heart"></i></label> -->
-												<button type="submit" class="btn btn-dark" id="like"><i class="fa-regular fa-heart"></i> </button>
+												<button type="submit" class="btn" id="like"><i class="fa-regular fa-heart"></i> </button>
 											</form>
 											<%}%>
 												 <form method="POST" action="/feeds/<%=post._id%>/comment" class="comment" id="loginform">
