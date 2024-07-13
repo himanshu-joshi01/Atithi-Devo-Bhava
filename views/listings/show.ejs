@@ -31,7 +31,7 @@
                     </ul>
                     <div class="card-body d-flex">
                         <% if(currUser && currUser._id.equals(listing.owner._id)) {%>
-                            <a href="http://localhost:8080/listings/<%=listing._id%>/edit"
+                            <a href="/listings/<%=listing._id%>/edit"
                                 class="card-link text-decoration-none"><button class="btn btn-dark">Edit</button></a>
                             <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
                                 <button class="btn btn-dark mx-3">Delete</button>
