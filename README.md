@@ -90,7 +90,26 @@ Atithi Devo Bhava is licensed under the MIT License. See [LICENSE](LICENSE) for 
 
 We would like to acknowledge the following dependencies and libraries used in this project:
 
-* [List dependencies and libraries]
+* [@mapbox/mapbox-sdk": "^0.15.3",
+    "cloudinary": "^1.41.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.4",
+    "ejs": "^3.1.9",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "firebase": "^10.8.0",
+    "joi": "^17.12.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.3",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose":]
 
 ### Roadmap
 
