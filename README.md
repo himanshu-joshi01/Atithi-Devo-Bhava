@@ -1,5 +1,5 @@
 
- Wanderlust
+ Atithi Devo Bhava
 ==========
 
 Wanderlust is a full-stack web application built with Node.js, Express, Mongoose, EJS, Passport, and other technologies. This application allows users to create an account, create and edit listings, and leave reviews for those listings.
