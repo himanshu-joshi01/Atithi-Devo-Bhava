@@ -1,79 +1,99 @@
+# Atithi Devo Bhava
+================
 
- Atithi Devo Bhava
-==========
+Travel Listing and Review Platform
+--------------------------------------
 
-Wanderlust is a full-stack web application built with Node.js, Express, Mongoose, EJS, Passport, and other technologies. This application allows users to create an account, create and edit listings, and leave reviews for those listings.
+### Overview
 
-Features
---------
+Wanderlust is a cutting-edge web-based platform designed to facilitate the discovery and review of travel listings. Our application provides a seamless user experience, allowing travelers to explore and share their experiences with others. With a focus on simplicity, scalability, and security, Wanderlust is the perfect solution for travel enthusiasts and industry professionals alike.
 
-* User authentication with Passport
-* Listing creation and editing
-* Review submission and editing
-* Error handling and flash messages
+### Getting Started
 
-Technologies Used
-----------------
+#### System Requirements
 
-* Node.js
-* Express
-* Mongoose
-* EJS
-* Passport
-* connect-flash
-* cookie-parser
-* express-session
-* method-override
-* dotenv
-* express-error-handler
+* Node.js (version 14 or later)
+* MongoDB Atlas account for database storage
+* A modern web browser (Google Chrome, Mozilla Firefox, etc.)
 
-Getting Started
----------------
+#### Installation and Configuration
 
-1. Clone the repository:
-```bash
-git clone https://github.com/[username]/wanderlust.git
-```
-2. Install dependencies:
-```bash
-cd wanderlust
-npm install
-```
-3. Create a .env file in the root directory with the following content:
-```makefile
-MONGO_URL=mongodb://127.0.0.1:27017/wanderlust
-SECRET=mysupersecretcode
-```
-4. Run the application:
-```bash
-npm start
-```
-Routes
-------
+1. Clone the repository: `git clone https://github.com/himanshu-joshi01/Atithi-Devo-Bhava.git`
+2. Install dependencies: `npm install`
+3. Create a `.env` file with the following variables:
+	* `ATLASDB_URL`: your MongoDB Atlas database URL
+	* `SECRET`: a secret key for session storage
+	* `PORT`: the port number for the application (default: 3000)
 
-| Method | Path | Description |
-| --- | --- | --- |
-| GET | /home | Homepage |
-| GET | /home/feeds | Listing feed |
-| GET, POST, PUT, DELETE | /listings | Listing management |
-| GET, POST, PUT, DELETE | /listings/:id/reviews | Review management |
-| GET, POST | /users | User management |
+#### Running the Application
 
-Contributing
-------------
+`node app.js`
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+### Features and Functionality
 
-License
--------
+#### User Management
 
-[MIT](https://choosealicense.com/licenses/mit/)
+* Secure user authentication and authorization using JSON Web Tokens (JWT)
+* Personalized user profiles with listing and review history
+* User profile editing and management
 
-Contact
--------
+#### Listing Management
 
-[Your Name](mailto:you@example.com)
+* Create, edit, and delete listings with ease
+* Leave reviews and ratings for listings
+* Listing categorization and filtering
 
-This README.md file includes information about the project, how to install and run it, the routes available, and how to contribute. It also includes a list of technologies used and the project's license. You can customize this template to fit the specific needs of your project. 
+#### Notification System
 
-Note: The above code block is a Node.js application, it cannot be executed as a Markdown file. It should be used as a reference for the application code and not as a standalone file.
+* Flash messages for success and error notifications
+* Real-time updates for new listings and reviews
+
+#### Error Handling
+
+* Custom error pages for improved user experience
+* Error logging and debugging tools
+
+### API Endpoints
+
+* `/`: Home page with listing feed
+* `/listings`: Listing index page
+* `/listings/:id`: Individual listing page
+* `/listings/:id/reviews`: Review index page for a listing
+* `/users`: User profile page
+* `/feeds`: Feed page with latest listings and reviews
+
+### Technical Stack
+
+* **Frontend**: EJS template engine with EJS-Mate, Bootstrap 4, and jQuery
+* **Backend**: Node.js with Express.js framework, MongoDB with Mongoose ORM, and more
+* **Database**: MongoDB Atlas for scalable and secure data storage
+
+### Security
+
+* Secure user authentication and authorization using JWT
+* Data encryption using SSL/TLS
+* Regular security updates and patches
+
+### Contributing
+
+We welcome contributions to Atithi Devo Bhava! Fork the repository, make your changes, and submit a pull request. Please ensure that your changes align with our coding standards and best practices.
+
+### Licensing
+
+Atithi Devo Bhava is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+### Authors
+
+[Himanshu Joshi]
+
+### Acknowledgments
+
+We would like to acknowledge the following dependencies and libraries used in this project:
+
+* [List dependencies and libraries]
+
+### Roadmap
+
+* Implementing social media integration for user authentication
+* Adding support for multiple languages and currencies
+* Enhancing the user interface and user experience
