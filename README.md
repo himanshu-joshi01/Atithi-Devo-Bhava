@@ -6,7 +6,7 @@ Travel Listing and Review Platform
 
 ### Overview
 
-Wanderlust is a cutting-edge web-based platform designed to facilitate the discovery and review of travel listings. Our application provides a seamless user experience, allowing travelers to explore and share their experiences with others. With a focus on simplicity, scalability, and security, Wanderlust is the perfect solution for travel enthusiasts and industry professionals alike.
+Atithi Devo Bhava is a cutting-edge web-based platform designed to facilitate the discovery and review of travel listings. Our application provides a seamless user experience, allowing travelers to explore and share their experiences with others. With a focus on simplicity, scalability, and security, Atithi Devo Bhava is the perfect solution for travel enthusiasts and industry professionals alike.
 
 ### Getting Started
 
